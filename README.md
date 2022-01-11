@@ -1,5 +1,7 @@
 # PyTorch Android Examples
 
+Template fot Dacl-App:
+
 A list of Android demo apps built on the powerful [PyTorch Mobile](https://pytorch.org/mobile) platform.
 
 ### HelloWorld
