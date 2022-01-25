@@ -1,9 +1,32 @@
-# PyTorch Android Examples
+
+# Dacl-Android-App
+This repo is forked from the Android-Demo-App repo by pytorch. It will be used as a templated to develop the dacl-android-app. The aim is to change the live image classification example in `PytorchDemoApp` to do live damage classification with a ready-to-use lite interpreter model  (ptl-file).
+
+## Model preparation 
+From: https://pytorch.org/mobile/android/
+```
+import torch
+import torchvision
+from torch.utils.mobile_optimizer import optimize_for_mobile
+
+model = torchvision.models.mobilenet_v2(pretrained=True)
+model.eval()
+example = torch.rand(1, 3, 224, 224)
+traced_script_module = torch.jit.trace(model, example)
+traced_script_module_optimized = optimize_for_mobile(traced_script_module)
+traced_script_module_optimized._save_for_lite_interpreter("app/src/main/assets/model.ptl")
+```
+
+Second option would be using Pytorch Live: https://github.com/pytorch/live
+
+
+# ###Original README from Android-Demo-App###
+## PyTorch Android Examples
 
 
 A list of Android demo apps built on the powerful [PyTorch Mobile](https://pytorch.org/mobile) platform.
 
-### Template fot Dacl-App: HelloWorld !!!
+### HelloWorld
 
 [HelloWorld](https://github.com/pytorch/android-demo-app/tree/master/HelloWorldApp) is a simple image classification application that demonstrates how to use the PyTorch Android API with the latest PyTorch 1.8, MobileNet v3, and [MemoryFormat.CHANNELS_LAST](https://pytorch.org/tutorials/intermediate/memory_format_tutorial.html).
 
