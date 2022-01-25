@@ -1,5 +1,11 @@
 package org.pytorch.demo;
-
+// My classes:
+//"Background",
+//"Crack",
+//"Spalling",
+//"Efflorescence",
+//"ExposedRebars",
+//"CorrosionStain"
 public class Constants {
   public static final String TAG = "PyTorchDemo";
 

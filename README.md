@@ -97,6 +97,12 @@ Output:
 3 :  Efflorescence
 ```
 
+## Errors
+
+When I replace the original model with mine in `VisionListActivity.java` and the classes in `constants.java`, an Error occurs on the phone (Compiling works fine/Build Successfull), saying: *"Sorry there was an error."*. 
+
+When I try to debug the app inside AndroidStudio, the follwoing Error occurs: "Error running 'Android Debugger (49335)': Unable to open debugger port (localhost:49335): java.net.ConnectException "Connection refused: connect"
+
 
 # Original README from Android-Demo-App
 ## PyTorch Android Examples

@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewStub;
 import android.widget.TextView;
 
-import org.pytorch.IValue;
+import org.pytorch.IValue; 
 import org.pytorch.Module;
 import org.pytorch.Tensor;
 import org.pytorch.demo.Constants;
