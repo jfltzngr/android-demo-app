@@ -2,7 +2,7 @@
 # Dacl-Android-App
 This repo is forked from the Android-Demo-App repo by pytorch. It will be used as a template to develop the dacl-android-app. The aim is to change the live image classification example in `PytorchDemoApp` to do live damage classification with a ready-to-use lite interpreter model  (ptl-file). The easiest way do deploy our dacl model is via this example but FYI: there would be also a example using Pytorch Live: https://github.com/pytorch/live. 
 
-The dcoumentation for our template is here: https://pytorch.org/mobile/android/#pytorch-demo-application
+The documentation for our template is here: https://pytorch.org/mobile/android/#pytorch-demo-application
 
 **What I need in a nutshell is shown in the figure below:**
 
@@ -65,15 +65,15 @@ public class VisionListActivity extends AbstractListActivity {
 ```
 
 ## Dealing with the model's output (Calculations)
-The outout is treated in *PyTorchDemoApp/app/src/main/java/org/pytorch/demo/vision/ImageClassificationActivity.java*.
-The current output of the model is a 1000 elements long array containing the probabilities for the imagenet classes. Afterwards topk outputs the 3 classes with the highest probability. 
+The output is treated in *PyTorchDemoApp/app/src/main/java/org/pytorch/demo/vision/ImageClassificationActivity.java*.
+The current output of the model is a 1000 elements long array containing the probabilities for the imagenet classes. Afterwards topk outputs the 3 classes with the highest probability. The possible labels which have to be replaced by our class_names are defined here: *PyTorchDemoApp/app/src/main/java/org/pytorch/demo/Constants.java*
 
 **WHAT I NEED**
 Our model's output is a 6 elements long array representing the probabilities of the damage classes(see class_names). Our model is a Multi-Target classifier and no single-target classifier like the one from the original demo-app. so instead of showing the three classes with the highest probabilities we watn to output all 6 classes with their according probability and highlighting the classes that exceed a threshold of **0.5**. Here is what we need in Python(Pytorch) code:
 
 ```
 model = Network() # Our MobileNetV3 or V2
-class_names = ["Background", "Crack", "Spallation", "Efflorescence", "ExposedBars", "CorrosionStain"]
+class_names = ["Background", "Crack", "Spalling", "Efflorescence", "ExposedRebars", "CorrosionStain"]
 example = torch.rand(1, 3, 224, 224)
 output = model(example)
 print('Predictions from torch.rand-input: \n', output)
