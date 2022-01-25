@@ -771,7 +771,7 @@ public class ImageNetClasses {
       "rotisserie",
       "rubber eraser, rubber, pencil eraser",
       "rugby ball",
-      "rule, ruler",
+      "Spalling, ExposedRebar, Corrosion",
       "running shoe",
       "safe",
       "safety pin",
