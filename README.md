@@ -75,16 +75,17 @@ Our model's output is a 6 elements long array representing the probabilities of 
 model = Network() # Our MobileNetV3 or V2
 class_names = ["Background", "Crack", "Spalling", "Efflorescence", "ExposedRebars", "CorrosionStain"]
 example = torch.rand(1, 3, 224, 224)
-output = model(example)
-print('Predictions from torch.rand-input: \n', output)
+logits = model(example)
+preds = torch.sigmoid(logits).float()
+print('Predictions from torch.rand-input: \n', preds)
 ```
-`Output: [[ 0.5,  0.527, 0.1, 0.8, 0.45, -0.1132]]`
+`Output: [[0.4402, 0.4971, 0.5328, 0.4665, 0.4625, 0.5262]]`
 ```
 threshold = .5
-bin = np.array(output.squeeze(0) > threshold, dtype=float)
+bin = np.array(preds.squeeze(0) > threshold, dtype=float)
 print('Binarized result from manual predictions: \n', bin)
 ```
-`Output: [0., 1., 0., 1., 0., 0.]`
+`Output: [0. 0. 1. 0. 0. 1.]`
 ```
 for i,r in enumerate(bin):
         if r != 0:
@@ -93,8 +94,8 @@ for i,r in enumerate(bin):
 
 ```
 Output: 
-1 :  Crack
-3 :  Efflorescence
+2 :  Spalling
+5 :  CorrosionStain
 ```
 
 ## Errors
