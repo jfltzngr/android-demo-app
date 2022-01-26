@@ -17,6 +17,7 @@ import org.pytorch.demo.R;
 import org.pytorch.demo.Utils;
 import org.pytorch.demo.vision.view.ResultRowView;
 import org.pytorch.torchvision.TensorImageUtils;
+import org.pytorch.LiteModuleLoader;
 
 import java.io.File;
 import java.nio.FloatBuffer;
@@ -163,7 +164,7 @@ public class ImageClassificationActivity extends AbstractCameraXActivity<ImageCl
       if (mModule == null) {
         final String moduleFileAbsoluteFilePath = new File(
             Utils.assetFilePath(this, getModuleAssetName())).getAbsolutePath();
-        mModule = Module.load(moduleFileAbsoluteFilePath);
+        mModule = LiteModuleLoader.load(moduleFileAbsoluteFilePath);
 
         mInputTensorBuffer =
             Tensor.allocateFloatBuffer(3 * INPUT_TENSOR_WIDTH * INPUT_TENSOR_HEIGHT);
@@ -189,7 +190,7 @@ public class ImageClassificationActivity extends AbstractCameraXActivity<ImageCl
       final float[] topKScores = new float[TOP_K];
       for (int i = 0; i < TOP_K; i++) {
         final int ix = ixs[i];
-        topKClassNames[i] = Constants.IMAGENET_CLASSES[ix];
+        topKClassNames[i] = Constants.BETON_CLASSES[ix];
         topKScores[i] = scores[ix];
       }
       final long analysisDuration = SystemClock.elapsedRealtime() - startTime;

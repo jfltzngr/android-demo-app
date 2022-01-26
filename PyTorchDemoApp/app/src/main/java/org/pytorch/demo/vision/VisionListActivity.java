@@ -7,6 +7,7 @@ import org.pytorch.demo.AbstractListActivity;
 import org.pytorch.demo.InfoViewFactory;
 import org.pytorch.demo.R;
 
+
 public class VisionListActivity extends AbstractListActivity {
 
   @Override
