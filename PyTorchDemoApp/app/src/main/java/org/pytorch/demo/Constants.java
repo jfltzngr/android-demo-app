@@ -9,6 +9,15 @@ package org.pytorch.demo;
 public class Constants {
   public static final String TAG = "PyTorchDemo";
 
+  public static String[] BETON_CLASSES = new String[]{
+          "Background",
+          "Crack",
+          "Spalling",
+          "Efflorescence",
+          "ExposedRebars",
+          "CorrosionStain"
+  };
+
   public static String[] IMAGENET_CLASSES = new String[]{
       "tench, Tinca tinca",
       "goldfish, Carassius auratus",

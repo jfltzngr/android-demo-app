@@ -4,11 +4,18 @@
     <color name="colorPrimaryDark">#812ce4</color>
     <color name="colorAccent">#cb2f8f</color>
 
+    <color name="colorBlue">#0055CC</color>
+    <color name="colorRed">#ff6666</color>
+    <color name="colorGreen">#CCFF00</color>
+
     <color name="textColor">@android:color/white</color>
 
     <color name="top1">@color/colorPrimary</color>
     <color name="top2">@color/colorAccent</color>
     <color name="top3">@color/colorPrimaryDark</color>
+    <color name="top4">@color/colorBlue</color>
+    <color name="top5">@color/colorRed</color>
+    <color name="top6">@color/colorGreen</color>
 
     <color name="nlpPrimaryColor">#812ce5</color>
 </resources>
